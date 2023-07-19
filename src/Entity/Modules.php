@@ -44,16 +44,6 @@ class Modules
      */
     private $description;
 
-/**
-     * @ORM\Column(name="date_creation", type="datetime", nullable=true)
-     * @Assert\DateTime()
-     */
-    private ?\DateTimeInterface $dateCreation;
-
-    public function __construct()
-    {
-        $this->dateCreation = new \DateTime(); // Initialise la date de création avec la date et l'heure actuelles
-    }
 
     public function getId(): ?int
     {
@@ -96,17 +86,17 @@ class Modules
         return $this;
     }
 
-    public function getDateCreation(): ?\DateTimeInterface
+    public function getCreationDate(): ?\DateTimeInterface
     {
-        return $this->dateCreation;
+        return $this->creationDate;
     }
-
-    public function setDateCreation(?\DateTimeInterface $dateCreation): static
+    
+    public function setCreationDate(\DateTimeInterface $creationDate): self
     {
-        $this->dateCreation = $dateCreation;
-
+        $this->creationDate = $creationDate;
         return $this;
     }
+    
 
 
 }
