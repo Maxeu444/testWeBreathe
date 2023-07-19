@@ -2,19 +2,25 @@
 
 namespace App\Controller;
 
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Modules;
+use App\Form\ModuleType;
+use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ManagerRegistry;
 
-class HomeController extends AbstractController
+class HomeController extends AbstractController 
 {
-        /**
-     * @Route("/", name="home")
-     */
-    public function index(): Response
+    #[Route('/', name: 'home.index', methods: ['GET'])]
+    public function index(ManagerRegistry $doctrine): Response
     {
-        // Mettez ici la logique pour générer le contenu de la page d'accueil
-        // Par exemple, pour renvoyer une simple réponse HTML :
-        return new Response('<html><body>Bienvenue sur la page d\'accueil !</body></html>');
+        $entityManager = $doctrine->getManager();
+        $donnees = $entityManager->getRepository(Modules::class)->findAll();
+
+        return $this->render('index.html.twig', [
+            'donnees' => $donnees,
+        ]);
     }
 }

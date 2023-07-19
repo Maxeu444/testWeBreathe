@@ -13,18 +13,6 @@ use Doctrine\Persistence\ManagerRegistry;
 
 class ModulesController extends AbstractController
 {
-    /**
-     * @Route("/modules", name="modules")
-     */
-    public function afficherDonnees(ManagerRegistry $doctrine): Response
-    {
-        $entityManager = $doctrine->getManager();
-        $donnees = $entityManager->getRepository(Modules::class)->findAll();
-
-        return $this->render('modules.html.twig', [
-            'donnees' => $donnees,
-        ]);
-    }
 
     /**
      * @Route("/add-module", name="add_module")
@@ -41,8 +29,8 @@ class ModulesController extends AbstractController
             $entityManager->persist($module);
             $entityManager->flush();
 
-            return $this->redirectToRoute('modules'); // Rediriger vers la page affichant les modules après l'ajout
-        }
+            return $this->redirectToRoute('home.index'); // Rediriger vers la page affichant les modules après l'ajout
+        }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
 
         return $this->render('formModule.html.twig', [
             'form' => $form->createView(),
