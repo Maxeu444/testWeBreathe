@@ -1,31 +1,29 @@
-{% extends 'base.html.twig' %}
+{% extends 'base.html.twig' %} {% block title %}Module monitoring - Liste{%
+endblock %} {% block body %}
 
-{% block title %}Module monitoring - Liste{% endblock %}
 
-{% block body %}
-<h1>Liste des modules</h1>
-    <ul>
-        <table class="table table-light table-striped">
-            <thead>
-              <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Type</th>
-                <th scope="col">Description</th>
-                <th scope="col">Capacitié</th>
-              </tr>
-            </thead>
-            <tbody>
-            {% for donnee in donnees %}
-              <tr>
-                <th scope="row">{{ donnee.id }}</th>
-                <td>{{ donnee.type }}</td>
-                <td>{{ donnee.description }}</td>
-                <td>{{ donnee.capaciteMax }}</td>
-              </tr>
-              {% else %}
-            <p>Aucune donnée n'est disponible pour affichage.</p>
-            {% endfor %}
-            </tbody>
-          </table>
-    </ul>
+<div id="tableContainer">
+  <h2 class="sectionTitle">Liste des modules</h2>
+  <table id="moduleTable" class="table table-light table-striped rounded-6">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Type</th>
+        <th scope="col">Description</th>
+        <th scope="col">Capacitié</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for donnee in donnees %}
+      <tr>
+        <th scope="row">{{ donnee.id }}</th>
+        <td>{{ donnee.type }}</td>
+        <td>{{ donnee.description }}</td>
+        <td>{{ donnee.capaciteMax }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
 {% endblock %}
