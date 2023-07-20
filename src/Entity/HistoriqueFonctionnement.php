@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * HistoriqueFonctionnement
@@ -21,13 +22,6 @@ class HistoriqueFonctionnement
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date_heure", type="datetime", nullable=false)
-     */
-    private $dateHeure;
 
     /**
      * @var string
@@ -63,7 +57,7 @@ class HistoriqueFonctionnement
         return $this->dateHeure;
     }
 
-    public function setDateHeure(\DateTimeInterface $dateHeure): static
+    public function setDateHeure(\DateTimeInterface $dateHeure): self
     {
         $this->dateHeure = $dateHeure;
 
@@ -105,6 +99,5 @@ class HistoriqueFonctionnement
 
         return $this;
     }
-
 
 }

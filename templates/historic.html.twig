@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Module monitoring - Historique{%
+endblock %} 
+
+{% block javascripts %} 
+<script src="{{asset('js/generate_data.js ')}}"></script>
+{% endblock %}
+
+{% block body %}
+
+<p>
+{{ info.id }}
+{{ info.type }}
+{{ info.description }}
+{{ info.capaciteMax }}
+<p>
+
+
+    <table id="moduleTable" class="table table-light table-striped rounded-6">
+        <thead>
+          <tr>
+            <th scope="col">Module ID</th>
+            <th scope="col">Etat</th>
+            <th scope="col">Taux de Remplissage</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for mesure in mesures %} 
+        <tr>
+            <td>{{ info.id }}</td>
+            <th scope="row">{{ mesure.etat }}</th>
+            <td>{{ mesure.tauxRemplissage }}</td>
+        </tr>
+     {% endfor %} 
+
+{% endblock %}

@@ -1,5 +1,9 @@
-{% extends 'base.html.twig' %} {% block title %}Module monitoring - Liste{%
-endblock %} {% block body %}
+{% extends 'base.html.twig' %}
+
+{% block title %}Module monitoring - Liste{%
+endblock %} 
+
+{% block body %}
 
 
 <div id="tableContainer">
@@ -14,14 +18,14 @@ endblock %} {% block body %}
       </tr>
     </thead>
     <tbody>
-      {% for donnee in donnees %}
-      <tr>
-        <th scope="row">{{ donnee.id }}</th>
-        <td>{{ donnee.type }}</td>
-        <td>{{ donnee.description }}</td>
-        <td>{{ donnee.capaciteMax }}</td>
-      </tr>
-      {% endfor %}
+      {% for donnee in donnees %}  
+    <tr>
+        <th scope="row"><a href="{{ path('afficher_donnee', {'id': donnee.id}) }}">{{ donnee.id }}</a></th>
+        <td><a href="{{ path('afficher_donnee', {'id': donnee.id}) }}">{{ donnee.type }}</a></td>
+        <td><a href="{{ path('afficher_donnee', {'id': donnee.id}) }}">{{ donnee.description }}</a></td>
+        <td><a href="{{ path('afficher_donnee', {'id': donnee.id}) }}">{{ donnee.capaciteMax }}</a></td>
+    </tr>
+{% endfor %}
     </tbody>
   </table>
 </div>

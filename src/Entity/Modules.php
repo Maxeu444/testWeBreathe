@@ -96,7 +96,5 @@ class Modules
         $this->creationDate = $creationDate;
         return $this;
     }
-    
-
 
 }
