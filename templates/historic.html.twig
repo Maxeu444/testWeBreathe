@@ -5,33 +5,31 @@ endblock %}
 
 {% block javascripts %} 
 <script src="{{asset('js/generate_data.js ')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
 {% endblock %}
 
 {% block body %}
 
-<p>
-{{ info.id }}
-{{ info.type }}
-{{ info.description }}
-{{ info.capaciteMax }}
-<p>
+<div class="layout">
+  <div id="infoContainer">
+    
+<div class="infoCell">
+  <p><strong>Type de module: </strong><br>{{ info.type }}</p>
+</div>
+<div class="infoCell">
+<p><strong>Description: </strong><br>{{ info.description }}</p>
+</div>
+<div class="infoCell">
+<p><strong>Capacité maximum: </strong><br>{{ info.capaciteMax }}</p>
+</div>
 
 
-    <table id="moduleTable" class="table table-light table-striped rounded-6">
-        <thead>
-          <tr>
-            <th scope="col">Module ID</th>
-            <th scope="col">Etat</th>
-            <th scope="col">Taux de Remplissage</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for mesure in mesures %} 
-        <tr>
-            <td>{{ info.id }}</td>
-            <th scope="row">{{ mesure.etat }}</th>
-            <td>{{ mesure.tauxRemplissage }}</td>
-        </tr>
-     {% endfor %} 
+</div>
+  <div id="histoContainer">
+    <canvas id="myChart"></canvas>
+    
+  </div>
+</div>
+
 
 {% endblock %}

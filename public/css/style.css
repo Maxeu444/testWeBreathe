@@ -20,14 +20,13 @@
     width: 100%;
     height: 70px;
     background-color: white;
-    position: fixed;
-    top: 0;
+    /* position: sticky;
+    top: 0; */
     display: flex;
     flex-direction: row;
     align-items: center ;
     -webkit-box-shadow: 0px 10px 15px 3px rgba(207, 207, 207, 0.3); 
     box-shadow: 0px 10px 15px 3px rgba(207, 207, 207, 0.3);
-    
 }
 
 #navLogo{
@@ -94,3 +93,48 @@
   }
   
   #formButton:hover {opacity: 1}
+
+  /* Début css page module */
+
+  .layout {
+    width: 1366px;
+    height: 768px;
+
+  background-color: antiquewhite;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  
+    justify-content: center;
+    align-items: center;
+  }
+
+  #infoContainer{
+    margin: 0px 10px 0px 10px;
+    height: 150px;
+    width: 90%;
+    background-color: #f08484;
+    border-radius: 15px;
+
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  
+    
+  }
+
+  .infoCell{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #histoContainer{
+    margin: 0px 10px 0px 10px;
+    height: 500px;
+    width: 90%;
+    background-color: #f08484;
+    border-radius: 15px;
+  }
