@@ -5,7 +5,7 @@ endblock %}
 
 {% block javascripts %} 
 <script src="{{asset('js/generate_data.js ')}}"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+
 {% endblock %}
 
 {% block body %}
@@ -26,7 +26,8 @@ endblock %}
 
 </div>
   <div id="histoContainer">
-    <canvas id="myChart"></canvas>
+
+    <canvas id="lineCanvas" aria-label="chart" role="img" data-chart-data="{{ chartData | e('html_attr') }}"></canvas>
     
   </div>
 </div>

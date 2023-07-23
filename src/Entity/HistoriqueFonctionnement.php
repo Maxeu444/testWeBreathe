@@ -6,6 +6,7 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
+
 /**
  * HistoriqueFonctionnement
  *
@@ -38,14 +39,22 @@ class HistoriqueFonctionnement
     private $tauxRemplissage;
 
     /**
-     * @var \Modules
+ * @var \App\Entity\Modules|null
+ *
+ * @ORM\ManyToOne(targetEntity="App\Entity\Modules")
+ * @ORM\JoinColumns({
+ *   @ORM\JoinColumn(name="module_id", referencedColumnName="id")
+ * })
+ */
+private $module;
+
+
+        /**
+     * @var \DateTime
      *
-     * @ORM\ManyToOne(targetEntity="Modules")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="module_id", referencedColumnName="id")
-     * })
+     * @ORM\Column(name="date_heure", type="datetime", nullable=false)
      */
-    private $module;
+    private $dateHeure;
 
     public function getId(): ?int
     {

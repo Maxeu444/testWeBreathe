@@ -100,8 +100,6 @@
     width: 1366px;
     height: 768px;
 
-  background-color: antiquewhite;
-
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -114,7 +112,6 @@
     margin: 0px 10px 0px 10px;
     height: 150px;
     width: 90%;
-    background-color: #f08484;
     border-radius: 15px;
 
     display: grid;
@@ -135,6 +132,5 @@
     margin: 0px 10px 0px 10px;
     height: 500px;
     width: 90%;
-    background-color: #f08484;
     border-radius: 15px;
   }
