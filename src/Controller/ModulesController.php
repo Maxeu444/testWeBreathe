@@ -9,7 +9,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\Persistence\ManagerRegistry;
 
 class ModulesController extends AbstractController
 {
@@ -29,8 +28,8 @@ class ModulesController extends AbstractController
             $entityManager->persist($module);
             $entityManager->flush();
 
-            return $this->redirectToRoute('home.index'); // Rediriger vers la page affichant les modules après l'ajout
-        }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+            return $this->redirectToRoute('home.index');
+        }
 
         return $this->render('formModule.html.twig', [
             'form' => $form->createView(),
