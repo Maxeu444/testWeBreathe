@@ -25,7 +25,7 @@ Une fois le projet ouvert dans votre IDE, ouvrez un terminal et saisissez ces co
 symfony console doctrine:database:create
 symfony console doctrine:migrations:migrate 
 
-Il sera peut être necessaire de modifier les paramètres de connexion à la base de données : 
+Il sera peut être nécessaire de modifier les paramètres de connexion à la base de données : 
 fichier .env ligne 27.
 
-Une fois tout cela fait symfony server:start
+Une fois tout cela fait: symfony server:start
