@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Module monitoring - Historique{%
+endblock %} 
+
+{% block javascripts %} 
+<script src="{{asset('js/generate_data.js ')}}"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      let displayModal = document.getElementById('modal-data').getAttribute('data-display-modal') === 'true';
+
+      if (displayModal) {
+          let myModal = new bootstrap.Modal(document.getElementById('myModal'));
+          myModal.show();
+      }
+  });
+</script>
+
+  {% endblock %}
+
+
+{% block body %}
+
+<div class="modal" tabindex="-1" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Erreur critique</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Le module est en panne, le système va redémarrer sous peu..</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="layout">
+  <div id="infoContainer">
+    
+<div class="infoCell">
+  <p><strong>Type de module: </strong><br>{{ info.type }}</p>
+</div>
+<div class="infoCell">
+<p><strong>Description: </strong><br>{{ info.description }}</p>
+</div>
+<div class="infoCell">
+<p><strong>Capacité maximum: </strong><br>{{ info.capaciteMax }}</p>
+</div>
+
+
+</div>
+  <div id="histoContainer">
+
+    <canvas id="lineCanvas" aria-label="chart" role="img" data-chart-data="{{ chartData | e('html_attr') }}"></canvas>
+    
+  </div>
+</div>
+
+<div id="modal-data" data-display-modal="{{ app.session.get('displayModal') ? 'true' : 'false' }}"></div>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Module monitoring - Liste{%
+endblock %} 
+
+{% block body %}
+
+
+<div id="tableContainer">
+  <h2 class="sectionTitle">Liste des modules</h2>
+  <table id="moduleTable" class="table table-light table-striped rounded-6">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Type</th>
+        <th scope="col">Description</th>
+        <th scope="col">Capacitié</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for donnee in donnees %}  
+    <tr>
+        <th scope="row"><a href="{{ path('afficher_donnee', {'id': donnee.id}) }}">{{ donnee.id }}</a></th>
+        <td><a href="{{ path('afficher_donnee', {'id': donnee.id}) }}">{{ donnee.type }}</a></td>
+        <td><a href="{{ path('afficher_donnee', {'id': donnee.id}) }}">{{ donnee.description }}</a></td>
+        <td><a href="{{ path('afficher_donnee', {'id': donnee.id}) }}">{{ donnee.capaciteMax }}</a></td>
+    </tr>
+{% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}
